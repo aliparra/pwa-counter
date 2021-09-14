@@ -19,14 +19,26 @@ export class LogIn extends LitElement {
           text="Test1"
           url="/signin"
           .dark=${true}
+          .handler=${this.handleClick}
         ></app-log-button>
         <app-log-button
           text="Test2"
           url="/personal-area"
           .dark=${false}
+          .handler=${this.handleClick}
         ></app-log-button>
       </div>
     `;
+  }
+
+  handleClick() {
+    this.dispatchEvent(
+      new CustomEvent('redirect', {
+        detail: this.url,
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 }
 customElements.define('view-log-in', LogIn);

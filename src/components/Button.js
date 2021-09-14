@@ -6,6 +6,7 @@ export class LogButton extends LitElement {
       text: { type: String },
       url: { type: String },
       color: { type: String },
+      handler: { Function },
     };
   }
 
@@ -43,21 +44,11 @@ export class LogButton extends LitElement {
 
   render() {
     return html`<button
-      @click=${this.handleClick}
+      @click=${this.handler}
       class=${this.dark ? 'dark' : 'light'}
     >
       ${this.text}
     </button>`;
-  }
-
-  handleClick() {
-    this.dispatchEvent(
-      new CustomEvent('redirect', {
-        detail: this.url,
-        bubbles: true,
-        composed: true,
-      })
-    );
   }
 }
 customElements.define('app-log-button', LogButton);
