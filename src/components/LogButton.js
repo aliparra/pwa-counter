@@ -12,11 +12,6 @@ export class LogButton extends LitElement {
 
   static get styles() {
     return css`
-      :host {
-        --light-blue-color: #2b88e6;
-        --dark-blue-color: #0754a1;
-        --white-color: #ffffff;
-      }
       button {
         padding: 10px;
         cursor: pointer;
@@ -44,11 +39,22 @@ export class LogButton extends LitElement {
 
   render() {
     return html`<button
-      @click=${this.handler}
+      type="button"
+      @click=${this.handleClick}
       class=${this.dark ? 'dark' : 'light'}
     >
       ${this.text}
     </button>`;
+  }
+
+  handleClick() {
+    this.dispatchEvent(
+      new CustomEvent('redirect', {
+        detail: this.url,
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 }
 customElements.define('app-log-button', LogButton);

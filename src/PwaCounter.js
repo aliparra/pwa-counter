@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit';
+import { LitElement, html, css } from 'lit';
 import { Router } from '@vaadin/router';
 import { routesData } from './data/routesData.js';
 
@@ -22,6 +22,23 @@ export class PwaCounter extends LitElement {
   firstUpdated() {
     const router = new Router(this.renderRoot.querySelector('main'));
     router.setRoutes(routesData);
+  }
+
+  static get styles() {
+    return css`
+      :host {
+        --light-blue-color: #2b88e6;
+        --dark-blue-color: #0754a1;
+        --white-color: #ffffff;
+      }
+      #page-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+    `;
   }
 
   render() {
