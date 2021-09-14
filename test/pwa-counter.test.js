@@ -9,7 +9,8 @@ describe('PwaCounter', () => {
     element = await fixture(html`<pwa-counter></pwa-counter>`);
   });
 
-  it('passes the a11y audit', async () => {
-    await expect(element).shadowDom.to.be.accessible();
+  it('Header, main and footer exists', () => {
+    const navBar = element.shadowRoot.querySelector('app-nav-bar');
+    expect(navBar).to.exist;
   });
 });
