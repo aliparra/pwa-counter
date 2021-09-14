@@ -9,11 +9,6 @@ describe('PwaCounter', () => {
     element = await fixture(html`<pwa-counter></pwa-counter>`);
   });
 
-  it('renders a h1', () => {
-    const h1 = element.shadowRoot.querySelector('h1');
-    expect(h1).to.exist;
-  });
-
   it('passes the a11y audit', async () => {
     await expect(element).shadowDom.to.be.accessible();
   });
