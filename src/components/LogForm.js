@@ -8,6 +8,7 @@ export class LogForm extends LitElement {
       emailValue: { type: String },
       passwordValue: { type: String },
       actionType: { type: String },
+      lastData: { Date },
     };
   }
 
