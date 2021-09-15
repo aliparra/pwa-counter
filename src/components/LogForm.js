@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import './LogButton.js';
+import { registerUser } from '../services/index.js';
 
 export class LogForm extends LitElement {
   static get properties() {
@@ -73,7 +74,7 @@ export class LogForm extends LitElement {
   render() {
     return html`
       <div class="form__wrapper">
-        <form class="inputs__sec" @submit=${this.handleSubmit}>
+        <form class="inputs__sec" @submit=${this.handleRegister}>
           <input
             name="email"
             type="email"
@@ -117,15 +118,18 @@ export class LogForm extends LitElement {
     this.passwordValue = e.target.value;
   }
 
-  handleSubmit(e) {
+  handleRegister(e) {
     e.preventDefault();
     const authData = {
       email: this.emailValue,
       password: this.passwordValue,
     };
 
+    registerUser(authData);
+
     this.clearInputs();
     /* console.log(authData); */
+
     return authData;
   }
 
