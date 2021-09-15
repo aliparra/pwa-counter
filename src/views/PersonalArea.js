@@ -10,14 +10,24 @@ export class PersonalArea extends LitElement {
         justify-content: center;
         align-items: center;
       }
+
+      .text-block p {
+        color: gray;
+      }
     `;
   }
 
   render() {
     return html`
       <div class="text-block">
-        <h1>Personal Area</h1>
+        <h1>Welcome!</h1>
+        <p>The last time you accesed was</p>
         <app-counter></app-counter>
+        <app-log-button
+          .text=${'Log out'}
+          .dark=${false}
+          .url=${'/'}
+        ></app-log-button>
       </div>
     `;
   }

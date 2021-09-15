@@ -92,7 +92,9 @@ export class LogForm extends LitElement {
             @input=${this.handlePassword}
             required
           />
-          <button class="login__button" type="submit">Login</button>
+          <button class="login__button" type="submit">
+            ${this.actionType === 'login' ? 'Log in' : 'Register now'}
+          </button>
         </form>
 
         <div class="submit__sec">
@@ -100,7 +102,7 @@ export class LogForm extends LitElement {
           <app-log-button
             text=${this.actionType === 'login' ? 'Sign in' : 'Go to log in'}
             .dark=${false}
-            .url=${'/signin'}
+            .url=${this.actionType === 'login' ? '/signin' : '/'}
           ></app-log-button>
         </div>
       </div>
