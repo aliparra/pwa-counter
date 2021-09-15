@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import './LogButton.js';
-import { registerUser } from '../services/index.js';
+import { registerUser, login } from '../services/index.js';
 
 export class LogForm extends LitElement {
   static get properties() {
@@ -74,7 +74,12 @@ export class LogForm extends LitElement {
   render() {
     return html`
       <div class="form__wrapper">
-        <form class="inputs__sec" @submit=${this.handleRegister}>
+        <form
+          class="inputs__sec"
+          @submit=${this.actionType === 'register'
+            ? this.handleRegister
+            : this.handleLogin}
+        >
           <input
             name="email"
             type="email"
@@ -128,7 +133,22 @@ export class LogForm extends LitElement {
     registerUser(authData);
 
     this.clearInputs();
-    /* console.log(authData); */
+    /* console.log(authData);  */
+
+    return authData;
+  }
+
+  handleLogin(e) {
+    e.preventDefault();
+    const authData = {
+      email: this.emailValue,
+      password: this.passwordValue,
+    };
+    login(authData).then(data => {
+      window.localStorage.setItem('acess_token', data.access_token);
+      window.localStorage.setItem('last_date', data.logout);
+    });
+    this.clearInputs();
 
     return authData;
   }
