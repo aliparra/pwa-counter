@@ -130,10 +130,18 @@ export class LogForm extends LitElement {
       password: this.passwordValue,
     };
 
-    registerUser(authData);
+    registerUser(authData)
+      .then(data => {
+        if (data.errors) {
+          /*  window.alert('Credentials are already in use'); */
+          this.redirect('/signin');
+        } else {
+          this.redirect('/');
+        }
+      })
+      .catch(error => error);
 
     this.clearInputs();
-    /* console.log(authData);  */
 
     return authData;
   }
@@ -144,10 +152,18 @@ export class LogForm extends LitElement {
       email: this.emailValue,
       password: this.passwordValue,
     };
-    login(authData).then(data => {
-      window.localStorage.setItem('acess_token', data.access_token);
-      window.localStorage.setItem('logout', data.logout);
-    });
+    login(authData)
+      .then(data => {
+        if (data.access_token) {
+          window.localStorage.setItem('acess_token', data.access_token);
+          window.localStorage.setItem('logout', data.logout);
+          this.redirect('/personal-area');
+        } else {
+          /* window.alert('Incorrect password'); */
+          this.redirect('/');
+        }
+      })
+      .catch(this.redirect('/'));
     this.clearInputs();
 
     return authData;
@@ -156,6 +172,16 @@ export class LogForm extends LitElement {
   clearInputs() {
     this.emailValue = '';
     this.passwordValue = '';
+  }
+
+  redirect(url) {
+    this.dispatchEvent(
+      new CustomEvent('redirect', {
+        detail: url,
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 }
 

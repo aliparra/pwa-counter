@@ -21,6 +21,16 @@ export class PersonalArea extends LitElement {
       .text-block p {
         color: gray;
       }
+
+      .logout__button {
+        margin-top: 10px;
+        padding: 10px;
+        cursor: pointer;
+        color: white;
+        font-weight: bold;
+        border: none;
+        background-color: var(--dark-blue-color);
+      }
     `;
   }
 
@@ -35,13 +45,21 @@ export class PersonalArea extends LitElement {
         <h1>Welcome!</h1>
         <p>The last time you accesed was</p>
         <app-counter></app-counter>
-        <button @click=${this.makeLogout}>logout</button>
+        <button class="logout__button" @click=${this.makeLogout}>logout</button>
       </div>
     `;
   }
 
   makeLogout() {
     logout(this.currentToken);
+
+    this.dispatchEvent(
+      new CustomEvent('redirect', {
+        detail: '/',
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 }
 customElements.define('view-personal-area', PersonalArea);
