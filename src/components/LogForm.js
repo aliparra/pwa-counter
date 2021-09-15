@@ -146,7 +146,7 @@ export class LogForm extends LitElement {
     };
     login(authData).then(data => {
       window.localStorage.setItem('acess_token', data.access_token);
-      window.localStorage.setItem('last_date', data.logout);
+      window.localStorage.setItem('logout', data.logout);
     });
     this.clearInputs();
 

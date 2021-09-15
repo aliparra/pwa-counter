@@ -6,7 +6,6 @@ export class LogButton extends LitElement {
       text: { type: String },
       url: { type: String },
       color: { type: String },
-      handler: { Function },
     };
   }
 
