@@ -1,11 +1,18 @@
 import { LitElement, html, css } from 'lit';
+import '../components/Counter.js';
 
 export class PersonalArea extends LitElement {
   static get styles() {
     return css`
       .text-block {
-        text-align: center;
-        margin: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .text-block p {
+        color: gray;
       }
     `;
   }
@@ -13,7 +20,14 @@ export class PersonalArea extends LitElement {
   render() {
     return html`
       <div class="text-block">
-        <h1>Personal Area</h1>
+        <h1>Welcome!</h1>
+        <p>The last time you accesed was</p>
+        <app-counter></app-counter>
+        <app-log-button
+          .text=${'Log out'}
+          .dark=${false}
+          .url=${'/'}
+        ></app-log-button>
       </div>
     `;
   }
