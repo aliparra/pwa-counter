@@ -1,6 +1,6 @@
 // REGISTER
 export const registerUser = async body => {
-  const url = 'http://localhost:3001/api/users';
+  const url = 'https://pwa-api.herokuapp.com/api/users';
   const createdUser = await fetch(url, {
     method: 'POST',
     headers: {
@@ -14,7 +14,7 @@ export const registerUser = async body => {
 
 // LOG IN
 export const login = async body => {
-  const url = 'http://localhost:3001/api/login';
+  const url = 'https://pwa-api.herokuapp.com/api/login';
   const createdUser = await fetch(url, {
     method: 'POST',
     headers: {
@@ -29,7 +29,7 @@ export const login = async body => {
 // LOG OUT
 
 export const logout = async token => {
-  const url = 'http://localhost:3001/api/logout';
+  const url = 'https://pwa-api.herokuapp.com/api/logout';
   const createdUser = await fetch(url, {
     method: 'POST',
     headers: {
