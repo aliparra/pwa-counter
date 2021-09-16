@@ -17,7 +17,8 @@
     "@vaadin/router": "^1.7.4",
     "jsonwebtoken": "^8.5.1",
     "lit": "^2.0.0-rc.2",
-    "lit-element": "^3.0.0-rc.4"
+    "lit-element": "^3.0.0-rc.4",
+    "sinon": "^11.1.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.15.0",
