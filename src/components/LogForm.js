@@ -26,6 +26,7 @@ export class LogForm extends LitElement {
       .inputs__sec {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         margin: 5px;
         padding-bottom: 10px;
         width: 100%;
@@ -48,6 +49,8 @@ export class LogForm extends LitElement {
         font-weight: bold;
         border: none;
         background-color: var(--dark-blue-color);
+        align-self: center;
+        width: 98%;
       }
 
       .submit__sec {

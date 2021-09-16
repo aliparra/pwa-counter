@@ -26,6 +26,12 @@ export class LogButton extends LitElement {
       .light {
         background-color: var(--light-blue-color);
       }
+
+      @media only screen and (min-width: 750px) {
+        button{
+        width: 180px;
+        height: 40px;
+      }
     `;
   }
 
