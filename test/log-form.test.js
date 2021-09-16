@@ -34,4 +34,14 @@ describe('Log form', () => {
     const { detail } = await oneEvent(element, 'redirect');
     expect(detail).to.equal('urltest');
   });
+
+  it('value emailValue takes the value provided by the event', () => {
+    element.handleEmail({ target: { value: 'mail@mail.com' } });
+    expect(element.emailValue).to.equal('mail@mail.com');
+  });
+
+  it('value passwordValue takes the value provided by the event', () => {
+    element.handlePassword({ target: { value: 'test' } });
+    expect(element.passwordValue).to.equal('test');
+  });
 });

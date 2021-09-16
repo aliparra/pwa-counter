@@ -15,7 +15,7 @@ export const registerUser = async body => {
 // LOG IN
 export const login = async body => {
   const url = 'https://pwa-api.herokuapp.com/api/login';
-  const createdUser = await fetch(url, {
+  const logedUser = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ export const login = async body => {
     body: JSON.stringify(body),
   }).then(data => data.json());
 
-  return createdUser;
+  return logedUser;
 };
 
 // LOG OUT
