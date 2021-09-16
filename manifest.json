@@ -1,0 +1,41 @@
+{
+	"short_name": "Pwa-counter",
+	"name": "Pwa-counter-app",
+	"lang": "es",
+	"description": "An app to count the logout time.",
+	"start_url": "/",
+	"background_color": "#00aae7",
+	"theme_color": "#007199",
+	"dir": "auto",
+	"display": "standalone",
+	"orientation": "any",
+	"icons":  [
+		
+			{
+				"src": "https://res.cloudinary.com/dv4pkbmin/image/upload/v1631802013/pwa-counter/icon-192x192_f0eqpd.png",
+				"sizes": "192x192",
+				"type": "image/png",
+				"purpose": "any maskable"
+			},
+			{
+				"src": "https://res.cloudinary.com/dv4pkbmin/image/upload/v1631802013/pwa-counter/icon-256x256_x7qian.png",
+				"sizes": "256x256",
+				"type": "image/png",
+				"purpose": "any maskable"
+			},
+			{
+				"src": "https://res.cloudinary.com/dv4pkbmin/image/upload/v1631802014/pwa-counter/icon-384x384_smtwa9.png",
+				"sizes": "384x384",
+				"type": "image/png",
+				"purpose": "any maskable"
+			},
+			{
+				"src": "https://res.cloudinary.com/dv4pkbmin/image/upload/v1631802013/pwa-counter/icon-512x512_bp2cfl.png",
+				"sizes": "512x512",
+				"type": "image/png",
+				"purpose": "any maskable"
+			}
+		
+	   ],
+	"prefer_related_applications": false
+}
