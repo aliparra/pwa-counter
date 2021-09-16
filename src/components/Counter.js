@@ -7,6 +7,7 @@ export class Counter extends LitElement {
       hours: { type: String },
       minutes: { type: String },
       seconds: { type: Number },
+      secondsDifference: { type: Number },
       interval: { Function },
     };
   }
@@ -34,17 +35,30 @@ export class Counter extends LitElement {
     this.hours = 0;
     this.minutes = 0;
     this.seconds = 0;
+    this.secondsDifference = 0;
   }
 
   connectedCallback() {
     super.connectedCallback();
-    this.seconds = this.secondsCalculator(
-      this.days,
-      this.hours,
-      this.minutes,
-      this.seconds
-    );
+    this.secondsDifference = this.getTimeDifference();
+
+    if (this.secondsDifference) {
+      this.timeCalculator(this.secondsDifference);
+    }
+
     this.interval = setInterval(() => {
+      if (this.seconds === 59) {
+        if (this.minutes === 59) {
+          if (this.hours === 23) {
+            this.days += 1;
+            this.hours = 0;
+          }
+          this.hours += 1;
+          this.minutes = 0;
+        }
+        this.minutes += 1;
+        this.seconds = 0;
+      }
       this.seconds += 1;
     }, 1000);
   }
@@ -56,7 +70,6 @@ export class Counter extends LitElement {
 
   updated(changed) {
     super.updated(changed);
-    this.timeCalculator(this.seconds);
   }
 
   render() {
@@ -67,27 +80,15 @@ export class Counter extends LitElement {
           <h3>days</h3>
         </div>
         <div id="number__sec">
-          <h1>
-            ${this.hours - this.days * 24 < 10
-              ? `0${this.hours - this.days * 24} `
-              : this.hours - this.days * 24}
-          </h1>
+          <h1>${this.hours < 10 ? `0${this.hours}` : this.hours}</h1>
           <h3>hours</h3>
         </div>
         <div id="number__sec">
-          <h1>
-            ${this.minutes - this.hours * 60 < 10
-              ? `0${this.minutes - this.hours * 60} `
-              : this.minutes - this.hours * 60}
-          </h1>
+          <h1>${this.minutes < 10 ? `0${this.minutes}` : this.minutes}</h1>
           <h3>minutes</h3>
         </div>
         <div id="number__sec">
-          <h1>
-            ${this.seconds - this.minutes * 60 < 10
-              ? `0${this.seconds - this.minutes * 60} `
-              : this.seconds - this.minutes * 60}
-          </h1>
+          <h1>${this.seconds < 10 ? `0${this.seconds}` : this.seconds}</h1>
           <h3>seconds</h3>
         </div>
       </main>
@@ -95,15 +96,27 @@ export class Counter extends LitElement {
   }
 
   timeCalculator(seconds) {
-    this.minutes = Math.floor(seconds / 60);
-    this.hours = Math.floor(this.minutes / 60);
-    this.days = Math.floor(this.hours / 24);
+    let totalSeconds = seconds;
+    this.days = Math.floor(seconds / (3600 * 24));
+    totalSeconds -= this.days * 3600 * 24;
+    this.hours = Math.floor(totalSeconds / 3600);
+    totalSeconds -= this.hours * 3600;
+    this.minutes = Math.floor(totalSeconds / 60);
+    totalSeconds -= this.minutes * 60;
+
+    this.seconds = totalSeconds;
   }
 
   // eslint-disable-next-line
-  secondsCalculator(days, hours, min, sec) {
-    const seconds = days * 86400 + hours * 3600 + min * 60 + sec;
-    return seconds;
+  getTimeDifference() {
+    const oldDate = window.localStorage.getItem('logout');
+    if (oldDate !== null) {
+      const secondsBetweenTwoDate = Math.abs(
+        (new Date().getTime() - Date.parse(oldDate)) / 1000
+      );
+      return Math.round(secondsBetweenTwoDate);
+    }
+    return false;
   }
 }
 

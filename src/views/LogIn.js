@@ -20,7 +20,7 @@ export class LogIn extends LitElement {
       <div class="text-block">
         <h1>Login</h1>
         <div class="form__wrapper">
-          <app-log-form actionType="login"></app-log-form>
+          <app-log-form actionType="login" url="/personal-area"></app-log-form>
         </div>
       </div>
     `;

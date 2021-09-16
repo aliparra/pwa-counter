@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import './LogButton.js';
+import { registerUser, login } from '../services/index.js';
 
 export class LogForm extends LitElement {
   static get properties() {
@@ -7,6 +8,7 @@ export class LogForm extends LitElement {
       emailValue: { type: String },
       passwordValue: { type: String },
       actionType: { type: String },
+      lastData: { Date },
     };
   }
 
@@ -73,7 +75,12 @@ export class LogForm extends LitElement {
   render() {
     return html`
       <div class="form__wrapper">
-        <form class="inputs__sec" @submit=${this.handleSubmit}>
+        <form
+          class="inputs__sec"
+          @submit=${this.actionType === 'register'
+            ? this.handleRegister
+            : this.handleLogin}
+        >
           <input
             name="email"
             type="email"
@@ -117,21 +124,65 @@ export class LogForm extends LitElement {
     this.passwordValue = e.target.value;
   }
 
-  handleSubmit(e) {
+  handleRegister(e) {
     e.preventDefault();
     const authData = {
       email: this.emailValue,
       password: this.passwordValue,
     };
 
+    registerUser(authData)
+      .then(data => {
+        if (data.errors) {
+          /*  window.alert('Credentials are already in use'); */
+          this.redirect('/signin');
+        } else {
+          this.redirect('/');
+        }
+      })
+      .catch(error => error);
+
     this.clearInputs();
-    /* console.log(authData); */
+
+    return authData;
+  }
+
+  handleLogin(e) {
+    e.preventDefault();
+    const authData = {
+      email: this.emailValue,
+      password: this.passwordValue,
+    };
+    login(authData)
+      .then(data => {
+        if (data.access_token) {
+          window.localStorage.setItem('acess_token', data.access_token);
+          window.localStorage.setItem('logout', data.logout);
+          this.redirect('/personal-area');
+        } else {
+          /* window.alert('Incorrect password'); */
+          this.redirect('/');
+        }
+      })
+      .catch(this.redirect('/'));
+    this.clearInputs();
+
     return authData;
   }
 
   clearInputs() {
     this.emailValue = '';
     this.passwordValue = '';
+  }
+
+  redirect(url) {
+    this.dispatchEvent(
+      new CustomEvent('redirect', {
+        detail: url,
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 }
 
