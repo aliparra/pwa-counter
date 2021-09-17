@@ -14,14 +14,42 @@
 * Incluye funcionalidades de PWA, añadiendo un manifest con iconos de diferentes tamaños, estilos y configuración de comportamiento de la app.
 * Validaciones en el formulario de registro (No permite contraseñas de menos de 4 caracteres o con espacios así como tampoco el registro de un usuario ya existente en la base de datos)
 * Validaciones en el formulario de login (No permite la entrada si la contraseña es incorrecta)
-* 
+
+
+**DESCARGA**
+
+Descargar archivo de la rama develop.
+
 **INSTALACIÓN**
 
 Para el correcto funcionamiento de la aplicación es necesario tener Node.js instalado. Se puede descargar desde su página oficial: https://nodejs.org/es/.
 </br>
 
 
+## Instalación
+
+    npm run install
+
+## Ejecutar la app en modo desarrollo
+    npm run start
+
+## Realizar test unitarios
+
+  npm run test
+
+## Realizar comprobaciones de linter
+
+  npm run lint
+
+## Ejecutar la app en modo producción
+    
+    npm run build
+    npm run start:build
+
+
+
 **INFORMACIÓN IMPORTANTE SOBRE LA API**
+
 La base de datos está alojada en MongoDb y la API REST desplegada en la plataforma de heroku.</br>
 Debido a que la plataforma de heroku es posible que esté en reposo y tarde en iniciarse o que pueda dar algún error aquí indico instrucciones para poder probar la aplicación corriendo la api en local.</br>
 
@@ -34,8 +62,7 @@ Iniciar la API con las instrucciones provistas en el readme. (Se puede acceder a
 
 ## **Snapshots**
 
-![Home crud app snapshoot](https://res.cloudinary.com/dv4pkbmin/image/upload/v1624552027/Basic%20crud%20captures/Captura_de_pantalla_de_2021-06-24_18-26-57_atqpmp.png)
-![Home crud app snapshoot](https://res.cloudinary.com/dv4pkbmin/image/upload/v1624551971/Basic%20crud%20captures/Captura_de_pantalla_de_2021-06-24_18-23-55_xelobd.png)
-![Home crud app snapshoot](https://res.cloudinary.com/dv4pkbmin/image/upload/v1624551971/Basic%20crud%20captures/Captura_de_pantalla_de_2021-06-24_18-24-11_w0ffcv.png)
-![Home crud app snapshoot](https://res.cloudinary.com/dv4pkbmin/image/upload/v1624552034/Basic%20crud%20captures/Captura_de_pantalla_de_2021-06-24_18-26-35_fcnazc.png)
-![Home crud app snapshoot](https://res.cloudinary.com/dv4pkbmin/image/upload/v1624551971/Basic%20crud%20captures/Captura_de_pantalla_de_2021-06-24_18-25-05_lugjdu.png)
+![Captura vista de incicio de sesión](https://res.cloudinary.com/dv4pkbmin/image/upload/v1631871825/pwa-counter/tres_r140hi.png)
+![Captura vista de registro](https://res.cloudinary.com/dv4pkbmin/image/upload/v1631871768/pwa-counter/dos_v9kskh.png)
+![Captura área personal](https://res.cloudinary.com/dv4pkbmin/image/upload/v1631871626/pwa-counter/Captura_de_pantalla_de_2021-09-17_11-07-49_jo1gzf.png)
+
