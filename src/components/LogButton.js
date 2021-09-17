@@ -28,9 +28,10 @@ export class LogButton extends LitElement {
       }
 
       @media only screen and (min-width: 750px) {
-        button{
-        width: 180px;
-        height: 40px;
+        button {
+          width: 180px;
+          height: 40px;
+        }
       }
     `;
   }

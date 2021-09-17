@@ -75,15 +75,15 @@ export class Counter extends LitElement {
   render() {
     return html`
       <main class="counter__wrapper">
-        <div id="number__sec">
+        <div id="number__days">
           <h1>${this.days < 10 ? `0${this.days} ` : this.days}</h1>
           <h3>days</h3>
         </div>
-        <div id="number__sec">
+        <div id="number__hours">
           <h1>${this.hours < 10 ? `0${this.hours}` : this.hours}</h1>
           <h3>hours</h3>
         </div>
-        <div id="number__sec">
+        <div id="number__min">
           <h1>${this.minutes < 10 ? `0${this.minutes}` : this.minutes}</h1>
           <h3>minutes</h3>
         </div>
