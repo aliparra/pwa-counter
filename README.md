@@ -48,6 +48,22 @@ Para el correcto funcionamiento de la aplicación es necesario tener Node.js ins
     npm run build
     npm run start:build
 
+**REGISTRO Y DATOS DE ACCESO**
+
+Es posible registrarse accediendo a la vista de registro haciendo click en el botón sign in.
+Introducir un email y contraseña válidos ( Ver validaciones en el apartado de caraterísticas detalladas)
+
+En caso de no registrarse facilito algunos usuarios ya creados para poder hacer log in de forma directa. 
+
+Email: test@test.com
+Password: prueba123.
+
+Email: user@user.com
+Password: Testing.
+
+Email: counter@test.com
+Password: Counter123.
+
 
 
 **INFORMACIÓN IMPORTANTE SOBRE LA API**
