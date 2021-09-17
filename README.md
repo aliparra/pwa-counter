@@ -55,13 +55,13 @@ Introducir un email y contraseña válidos ( Ver validaciones en el apartado de 
 
 En caso de no registrarse facilito algunos usuarios ya creados para poder hacer log in de forma directa. 
 
-Email: test@test.com
+Email: test@test.com </br>
 Password: prueba123.
 
-Email: user@user.com
+Email: user@user.com </br>
 Password: Testing.
 
-Email: counter@test.com
+Email: counter@test.com </br>
 Password: Counter123.
 
 
