@@ -11,6 +11,7 @@
 * Permite el cierre de sesión, guardando la fecha y hora del mismo para calcular el tiempo que un usuario pasa desconectado.
 * Cumple con el concepto de desarrollo mobile first.
 * Comportamiento responsive.
+* Cumple con los criterios PWA en la auditoría realizada con lighthouse en chrome dev tools.
 * Incluye funcionalidades de PWA, añadiendo un manifest con iconos de diferentes tamaños, estilos y configuración de comportamiento de la app.
 * Validaciones en el formulario de registro (No permite contraseñas de menos de 4 caracteres o con espacios así como tampoco el registro de un usuario ya existente en la base de datos)
 * Validaciones en el formulario de login (No permite la entrada si la contraseña es incorrecta)
@@ -54,7 +55,7 @@ Al entrar en la terminal asegurarse de estar dentro de la carpeta raíz pwa-coun
     npm run lint
 
 
-## Ejecutar la app en modo producción
+## Ejecutar la app en modo producción (Permite ver el manifest y auditoría de PWA)
     
     npm run build
     npm run start:build
