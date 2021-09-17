@@ -1,6 +1,8 @@
+const baseUrl = `https://login-pwa.herokuapp.com/api`;
+
 // REGISTER
 export const registerUser = async body => {
-  const url = 'https://login-pwa.herokuapp.com/api/users';
+  const url = `${baseUrl}/users`;
   const createdUser = await fetch(url, {
     method: 'POST',
     headers: {
@@ -14,7 +16,7 @@ export const registerUser = async body => {
 
 // LOG IN
 export const login = async body => {
-  const url = 'https://login-pwa.herokuapp.com/api/login';
+  const url = `${baseUrl}/login`;
   const logedUser = await fetch(url, {
     method: 'POST',
     headers: {
@@ -29,7 +31,7 @@ export const login = async body => {
 // LOG OUT
 
 export const logout = async token => {
-  const url = 'https://login-pwa.herokuapp.com/api/logout';
+  const url = `${baseUrl}/logout`;
   const logoutUser = await fetch(url, {
     method: 'POST',
     headers: {
