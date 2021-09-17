@@ -15,6 +15,15 @@
 * Validaciones en el formulario de registro (No permite contraseñas de menos de 4 caracteres o con espacios así como tampoco el registro de un usuario ya existente en la base de datos)
 * Validaciones en el formulario de login (No permite la entrada si la contraseña es incorrecta)
 
+**INFORMACIÓN IMPORTANTE SOBRE LA API**
+Esta aplicación hace llamadas a una API REST desplegada en la plataforma de heroku.</br>
+Debido a que la plataforma de heroku es posible que esté en reposo y tarde en iniciarse o que pueda dar algún error aquí indico instrucciones para poder probar la aplicación ejecutando la api en local.</br>
+
+-Acceder a la pwa counter app y dentro de src/servicios/index.js sustituír la baseURL por http://localhost:3001/api (Está comentada justo debajo del código).
+</br>-Iniciar la API con las instrucciones provistas en el readme y mantenerla en ejecución. (Se puede acceder [DESDE ESTE ENLACE](https://github.com/aliparra/pwa-api ))
+</br>-Iniciar la app y escribir el comando de ejecución.
+
+**ACCESO A LA API REST UTILIZADA [DESDE ESTE ENLACE](https://github.com/aliparra/pwa-api )**
 
 **DESCARGA**
 
@@ -67,20 +76,6 @@ Password: Testing.
 
 Email: counter@test.com </br>
 Password: Counter123.
-
-
-
-**INFORMACIÓN IMPORTANTE SOBRE LA API**
-
-La base de datos está alojada en MongoDb Atlas y la API REST desplegada en la plataforma de heroku.</br>
-Debido a que la plataforma de heroku es posible que esté en reposo y tarde en iniciarse o que pueda dar algún error aquí indico instrucciones para poder probar la aplicación corriendo la api en local.</br>
-
-Acceder a la app y dentro de src/servicios/index.js sustituír la baseURL por http://localhost:3001/api (Está comentada justo debajo).
-Iniciar la API con las instrucciones provistas en el readme y mantenerla en ejecución. (Se puede acceder a la api en el enlace que pongo justo abajo): </br>
-Iniciar la app y escribir el comando de ejecución.
-
-
-**ACCESO A LA API REST UTILIZADA [DESDE ESTE ENLACE](https://github.com/aliparra/pwa-api )**
 
 
 ## **Snapshots**
