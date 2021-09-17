@@ -31,15 +31,17 @@ Para el correcto funcionamiento de la aplicación es necesario tener Node.js ins
     npm run install
 
 ## Ejecutar la app en modo desarrollo
-    npm run start
 
+    npm run start
+    
 ## Realizar test unitarios
 
-  npm run test
+    npm run test
 
 ## Realizar comprobaciones de linter
 
-  npm run lint
+    npm run lint
+
 
 ## Ejecutar la app en modo producción
     
