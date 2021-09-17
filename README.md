@@ -54,6 +54,8 @@ Es posible registrarse accediendo a la vista de registro haciendo click en el bo
 Introducir un email y contraseña válidos ( Ver validaciones en el apartado de caraterísticas detalladas)
 
 En caso de no registrarse facilito algunos usuarios ya creados para poder hacer log in de forma directa. 
+Email: prueba@prueba.com
+Password: 1234
 
 Email: test@test.com </br>
 Password: prueba123.
