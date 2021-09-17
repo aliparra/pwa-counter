@@ -25,6 +25,8 @@ Descargar archivo de la rama develop.
 Para el correcto funcionamiento de la aplicación es necesario tener Node.js instalado. Se puede descargar desde su página oficial: https://nodejs.org/es/.
 </br>
 
+Al entrar en la terminal asegurarse de estar dentro de la carpeta raíz pwa-counter-develop
+
 
 ## Instalación
 
