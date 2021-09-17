@@ -1,5 +1,7 @@
 const baseUrl = `https://login-pwa.herokuapp.com/api`;
 
+// COPY THIS URL ON BASE URL IN CASE HEROKU DOES NOT WORK `http://localhost:3001/api`;
+
 // REGISTER
 export const registerUser = async body => {
   const url = `${baseUrl}/users`;
