@@ -30,7 +30,7 @@ Al entrar en la terminal asegurarse de estar dentro de la carpeta raíz pwa-coun
 
 ## Instalación
 
-    npm run install
+    npm install
 
 ## Ejecutar la app en modo desarrollo
 
