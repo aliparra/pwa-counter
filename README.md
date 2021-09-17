@@ -52,7 +52,7 @@ Para el correcto funcionamiento de la aplicación es necesario tener Node.js ins
 
 **INFORMACIÓN IMPORTANTE SOBRE LA API**
 
-La base de datos está alojada en MongoDb y la API REST desplegada en la plataforma de heroku.</br>
+La base de datos está alojada en MongoDb Atlas y la API REST desplegada en la plataforma de heroku.</br>
 Debido a que la plataforma de heroku es posible que esté en reposo y tarde en iniciarse o que pueda dar algún error aquí indico instrucciones para poder probar la aplicación corriendo la api en local.</br>
 
 Acceder a la app y dentro de src/servicios/index.js sustituír la baseURL por http://localhost:3001/api (Está comentada justo debajo).
