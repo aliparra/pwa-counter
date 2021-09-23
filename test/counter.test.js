@@ -32,4 +32,27 @@ describe('Counter', () => {
     expect(element.getTimeDifference()).to.be.a('number');
     expect(element.getTimeDifference() % 1).to.equal(0);
   });
+
+  it('Counter add one second to the counter each time ', () => {
+    const clock = sinon.useFakeTimers();
+
+    element.connectedCallback();
+    element.seconds = 0;
+    clock.tick(1000);
+    expect(element.seconds).to.equal(1);
+    clock.tick(1000);
+    expect(element.seconds).to.equal(2);
+    clock.restore();
+  });
+
+  it('Counter add one minute after the second counter pass 59 ', () => {
+    const clock = sinon.useFakeTimers();
+
+    element.connectedCallback();
+    element.minutes = 0;
+    element.seconds = 59;
+    clock.tick(1000);
+    expect(element.minutes).to.equal(1);
+    clock.restore();
+  });
 });
